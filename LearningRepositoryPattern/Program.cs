@@ -10,6 +10,11 @@ namespace LearningRepositoryPattern
     {
         static void Main(string[] args)
         {
+            using (var UnitOfWork = new UnitOfWork(new PluetoContext()))
+            {
+
+                UnitOfWork.Customer.GetAll();
+            }
         }
     }
 }

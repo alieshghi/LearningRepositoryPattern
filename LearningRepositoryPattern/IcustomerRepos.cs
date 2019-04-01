@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LearningRepositoryPattern
 {
-    interface IcustomerRepos :IRepository<Customer>
+    public interface IcustomerRepos :IRepository<Customer>
     {
         //IEnumerable<Customer> GetTopCustomer(int count);
         IEnumerable<Customer> GetCutomerWithAddress();
