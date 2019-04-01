@@ -53,7 +53,7 @@ namespace LearningRepositoryPattern
 
         public void RemoveRange(TEntity entities)
         {
-            throw new NotImplementedException();
+            context.Set<TEntity>().Remove(entities);
         }
     }
 }
