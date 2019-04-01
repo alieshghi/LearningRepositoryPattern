@@ -12,7 +12,7 @@ namespace LearningRepositoryPattern
     {
         TEntity Get(int id);
         IEnumerable<TEntity> GetAll();
-        IEnumerable<TEntity> Find(Expression<Func<TEntity>> predicate);
+        IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
 
         void Add(TEntity entities);
         void AddRange(List<TEntity> entities);

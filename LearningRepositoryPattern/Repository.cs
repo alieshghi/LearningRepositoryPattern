@@ -4,35 +4,46 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.e
+using System.Data.Entity;
+
 
 namespace LearningRepositoryPattern
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
+        protected readonly DbContext context;
+        public Repository(DbContext context)
+        {
+            this.context = context;
+        }
         public void Add(TEntity entities)
         {
-            throw new NotImplementedException();
+
+            context.Set<TEntity>().Add(entities);
         }
 
         public void AddRange(List<TEntity> entities)
         {
-            throw new NotImplementedException();
+            context.Set<TEntity>().AddRange(entities);
         }
 
-        public IEnumerable<TEntity> Find(Expression<Func<TEntity>> predicate)
+        public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return context.Set<TEntity>().Where(predicate);
+           
         }
+
+      
 
         public TEntity Get(int id)
         {
-            throw new NotImplementedException();
+            return context.Set<TEntity>().Find(id);
+            
         }
 
         public IEnumerable<TEntity> GetAll()
         {
-            throw new NotImplementedException();
+            return context.Set<TEntity>().ToList();
         }
 
         public void Remove(TEntity entities)
