@@ -8,11 +8,7 @@ namespace LearningRepositoryPattern
 {
    public class Address
     {
-        int id;
-        public Address(int id)
-        {
-            this.id = id;
-        }
+        public int id { get; set; }
         public string AddressDescription { get; set; }
         public string postalcode { get; set; }
     }

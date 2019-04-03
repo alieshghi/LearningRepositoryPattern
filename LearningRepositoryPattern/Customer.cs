@@ -8,12 +8,7 @@ namespace LearningRepositoryPattern
 {
     public class Customer
     {
-        int id;
-        public Customer(int id)
-        {
-            this.id = id;
-        }
-        
+        public int id { get; set; }
         public String name { get; set; }
         public String phone { get; set; }
         public List<Address> Address { get; set; }
